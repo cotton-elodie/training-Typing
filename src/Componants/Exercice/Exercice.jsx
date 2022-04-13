@@ -4,11 +4,13 @@ import Game from "./Game";
 import Result from "./Result";
 
 const Exercice = () => {
-  const [gameCurrentStep, setGameCurrentStep] = useState(0);
-  const [gameScore, setGameScore] = useState(0);
+  const [gameCurrentStep, setGameCurrentStep] = useState(0); // étape du jeu
+  const [gameScore, setGameScore] = useState(0); // score de l'utilisateur
 
+  // va nous permettre de passer à l'étape suivante
   const onNextStep = (score) => {
     setGameCurrentStep(gameCurrentStep + 1);
+    // on récupère le score de l'utilisateur
     setGameScore(score)
   }
 
