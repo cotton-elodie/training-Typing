@@ -1,17 +1,21 @@
 import { Label, PrimaryButton } from "@fluentui/react";
 import React from "react";
 import { useNavigate } from "react-router";
+import '../ExercicesList.jsx/exercicesList.scss'
 
 
 const ExercicesList = ({ exercices }) => {
   const navigate = useNavigate();
 
   return (
-    <ul>
+    <div className="exercices"> 
+    <ul className="exercices-ul">
       {exercices.map((exercice, index) => (
-        <li key={index}>
-          <Label >{exercice.title}</Label>
+        <li className="exercices-li"
+         key={index}>
+          <Label className="exercices-label">{exercice.title}</Label>
           <PrimaryButton
+          className="exercices-button"
             text="Go"
             onClick={() => {
               navigate("/exercice", { state: { exerciceSettings: exercice } });
@@ -20,6 +24,7 @@ const ExercicesList = ({ exercices }) => {
         </li>
       ))}
     </ul>
+    </div>
   );
 };
 

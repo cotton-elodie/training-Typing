@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 30px;
 }
 
 .App-logo {
@@ -27,5 +28,9 @@
 .App-link {
   color: #61dafb;
 }
-
-
+button {
+  border: teal;
+  background: teal;
+  color: aqua;
+  border-radius: 10px;
+}

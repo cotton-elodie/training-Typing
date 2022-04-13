@@ -1,28 +1,28 @@
 export default [
 
     {
-        title: 'Exercice 1 ',
+        title: 'Les lettres A et P ',
         directive :'A chaque bip il faut saisir la lettre affichée',
-        content:'azertyuiop'
+        content:'apapapapap'
     },
     {
-        title: 'Exercice 2',
+        title: 'Les lettres S, L, D et K',
         directive :'A chaque bip il faut saisir la lettre affichée',
-        content:'s S l L d D k K'
+        content:'sSlLdDkK'
     },
     {
-        title: 'Exercice 3',
+        title: 'Lettres et caractères',
         directive :'A chaque bip il faut saisir la lettre ou le caractère affiché',
-        content:'v V , ? b B n N'
+        content:'vV,?bBnN'
     },
     {
-        title: 'Exercice 4',
-        directive :'A chaque bip il faut saisir le mot affiché',
-        content:'papa maman maison, heureux bâtir / lôtir fermé'
+        title: 'Mots du quotidien',
+        directive :'A chaque bip il faut saisir la lettre ou le caractère affiché',
+        content:'papa,maman,maison'
     },
     {
-        title: 'Exercice 5',
-        directive :'Au bip il faut saisir la phrase affichée',
-        content:'Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.'
+        title: 'Mots du quotidien, suite',
+        directive :'A chaque bip il faut saisir la lettre ou le caractère affiché',
+        content:',heureux?batir/lotir.fermé'
     }
 ];
