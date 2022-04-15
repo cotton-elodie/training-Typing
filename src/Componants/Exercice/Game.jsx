@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { TextField } from "@fluentui/react/lib/TextField";
 import { useState } from "react";
-import { useLocation } from "react-router";
 import { Label } from "@fluentui/react";
 
 const Game = (props) => {
-  const location = useLocation();   // contexte de navigation
-  const { exerciceSettings } = location.state;    // paramètres du jeu
   const [currentLetterIndex, setCurrentLetterIndex] = useState(0);    // index du caractère attendu
   const [score, setScore] = useState(0);    // score de l'utilisateur
   // Composant audio du bip
@@ -18,7 +15,7 @@ const Game = (props) => {
   useEffect(() => {
     // On joue le bip
     beep.play();
-  }, []);
+  });
 
   // A chaque saisie utilisateur
   const handleAnswerChange = (event) => {
@@ -26,7 +23,7 @@ const Game = (props) => {
     if (event.key.length === 1) {
       // Oui, l'utilisateur a bien saisie un caractère
       // On recupère le caractère attendu
-      const inputLetter = exerciceSettings.content[currentLetterIndex];
+      const inputLetter = props.game.content[currentLetterIndex];
       // Est-ce que le caractère saisie est égal au caractère attend ?
 
       // La comparaison ne tient pas compte de la case
@@ -37,10 +34,11 @@ const Game = (props) => {
       }
 
       // Y-a-t-il d'autre caractère attendu ?
-      if (currentLetterIndex === exerciceSettings.content.length - 1) {
+      if (currentLetterIndex === props.game.content.length - 1) {
         // Non, plus de caractère à saisir
-        // On va sur la page suivante en remontant le score
-        props.onNextStep(score);
+        // On va sur la page suivante en remontant le score et le score maximun
+        props.onNextStep(score, props.game.content.length );
+        
       } else {
         // Oui, il y a encore des caractères attendus 
         // On passe au caractère suivant
@@ -55,7 +53,7 @@ const Game = (props) => {
     <div className="game">
       <p className="game-p">Lettre à saisir</p>
       <Label className="game-label">
-        {exerciceSettings.content[currentLetterIndex]}
+        {props.game.content[currentLetterIndex]}
       </Label>
       <p className="game-p">Votre saisie</p>
       <TextField className="game-text" onKeyDown={handleAnswerChange} />
